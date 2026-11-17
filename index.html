@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor's Landscaping & More LLC</title>
+    <style>
+        :root {
+            --primary: #2e6f40;
+            --primary-dark: #1e4d2b;
+            --accent: #e67e22;
+            --whatsapp: #25D366;
+            --bg-light: #f4f7f5;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --white: #ffffff;
+            --star-gold: #f5b301;
+            --star-gray: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-area h1 {
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area span {
+            font-size: 0.85rem;
+            color: #c8e6c9;
+            display: block;
+        }
+
+        .lang-btn {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover {
+            background-color: #e8f5e9;
+            transform: scale(1.05);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(20, 45, 25, 0.72), rgba(20, 45, 25, 0.72)), url('image6.jpg') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1.5rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #f0f0f0;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .btn:hover {
+            transform: scale(110%);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .btn-phone {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+        }
+
+        /* Sections General */
+        section {
+            padding: 3.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(110%);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        /* Star Rating (0 to 5) */
+        .rating-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stars-selector {
+            display: inline-flex;
+            gap: 0.3rem;
+            font-size: 2rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .star {
+            color: var(--star-gray);
+            transition: color 0.2s;
+        }
+
+        .star.active {
+            color: var(--star-gold);
+        }
+
+        .zero-stars-btn {
+            background: #eeeeee;
+            border: 1px solid #cccccc;
+            padding: 0.3rem 0.7rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            color: #444;
+        }
+
+        .zero-stars-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .rating-label-text {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .submit-review-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.9rem;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-review-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Reviews List */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--star-gold);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+
+        .review-stars {
+            color: var(--star-gold);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            color: #c8e6c9;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-area">
+            <h1>Victor's Landscaping & More LLC</h1>
+            <span data-i18n="location">Southern Pines, NC & Surrounding Areas</span>
+        </div>
+        <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">Español</button>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2 data-i18n="heroTitle">Professional Residential & Commercial Landscaping</h2>
+        <p data-i18n="heroSubtitle">Quality lawn care, freshly raked pinestraw, mulch installation, decorative stone, and full yard maintenance brought right to your door.</p>
+        
+        <div class="contact-buttons">
+            <a href="" class="btn btn-phone">
+                <span>📞</span>
+                <span><span data-i18n="callNow">Call Now:</span> 336-588-4471</span>
+            </a>
+            <a href="" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <span>💬</span>
+                <span>WhatsApp: 336-588-4471</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section>
+        <h2 class="section-title" data-i18n="servicesTitle">Our Services</h2>
+        <p class="section-subtitle" data-i18n="servicesSubtitle">Call or message us directly on WhatsApp for fast, reliable service</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 data-i18n="srv1Title">Lawn Mowing & Maintenance</h3>
+                <p data-i18n="srv1Desc">Clean, striped mowing, edging, and regular yard care to keep your grass healthy and sharp.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="srv2Title">Freshly Raked Pinestraw</h3>
+                <p data-i18n="srv2Desc">Delivery and neat installation of fresh pinestraw around trees, driveways, and garden beds.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="srv3Title">Mulch & Decorative Stone</h3>
+                <p data-i18n="srv3Desc">Custom flower beds with dark mulch, river rocks, white stones, and shrub planting.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="srv4Title">Yard Cleanup & Hauling</h3>
+                <p data-i18n="srv4Desc">Branch removal, bush trimming, seasonal cleanups, and debris hauling with our own fleet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Gallery -->
+    <section>
+        <h2 class="section-title" data-i18n="galleryTitle">Our Recent Work</h2>
+        <p class="section-subtitle" data-i18n="gallerySubtitle">Real results from our team at Victor's Landscaping & More LLC</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/image7.jpg" alt="Lawn Mowing Service">
+                <div class="gallery-caption" data-i18n="img6">Professional Lawn Mowing & Striping</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image8.jpg" alt="Freshly Cut Grass">
+                <div class="gallery-caption" data-i18n="img7">Clean Residential Lawn Finish</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image12.jpg" alt="Freshly Raked Pinestraw Truck">
+                <div class="gallery-caption" data-i18n="img12">Freshly Raked Pinestraw Delivery</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image5.jpg" alt="Pinestraw Installation">
+                <div class="gallery-caption" data-i18n="img5">Pinestraw Installation Around Trees</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image1.jpg" alt="Driveway Pinestraw Landscaping">
+                <div class="gallery-caption" data-i18n="img3">Full Yard Pinestraw Coverage</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image4.jpg" alt="Mulch and Shrubs">
+                <div class="gallery-caption" data-i18n="img4">Front Walkway Mulch & Boxwoods</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image2.jpg" alt="Commercial Mulch and Plants">
+                <div class="gallery-caption" data-i18n="img9">Commercial Bed Mulching & Planting</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image9.jpg" alt="Decorative River Rock Design">
+                <div class="gallery-caption" data-i18n="img8">Decorative Stone & Drainage Landscaping</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image10.jpg" alt="Full Cleanup and Hauling">
+                <div class="gallery-caption" data-i18n="img10">Full Property Cleanup & Equipment</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/image11.jpg" alt="Victor's Landscaping Fleet">
+                <div class="gallery-caption" data-i18n="img11">Our Service Fleet Ready for Your Home</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews (No Registration, 0-5 Stars) -->
+    <section>
+        <h2 class="section-title" data-i18n="reviewsTitle">Satisfied Customer Comments</h2>
+        <p class="section-subtitle" data-i18n="reviewsSubtitle">No registration required — leave your name, rating (0 to 5 stars), and feedback below</p>
+
+        <div class="reviews-container">
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label for="customerName" data-i18n="labelName">Your Name:</label>
+                    <input type="text" id="customerName" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="labelRating">Service Rating (0 to 5 Stars):</label>
+                    <div class="rating-wrapper">
+                        <div class="stars-selector" id="starsSelector">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                        <button type="button" class="zero-stars-btn" onclick="setRating(0)" data-i18n="zeroStarsBtn">Set 0 Stars</button>
+                        <span class="rating-label-text" id="ratingValueDisplay">0 / 5</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerComment" data-i18n="labelComment">Your Comment:</label>
+                    <textarea id="customerComment" required placeholder="Great work on our lawn and pinestraw!"></textarea>
+                </div>
+
+                <button type="submit" class="submit-review-btn" data-i18n="submitBtn">Post Comment</button>
+            </form>
+
+            <div class="reviews-list" id="reviewsList">
+                <!-- Comments will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Victor's Landscaping & More LLC</h3>
+        <p data-i18n="footerTagline">Direct Door-to-Door Landscaping Service — Call or WhatsApp Today!</p>
+        <div class="contact-buttons">
+            <a href="" class="btn btn-phone">
+                <span>📞</span>
+                <span>336-588-4471</span>
+            </a>
+            <a href="" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <span>💬</span>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Language Dictionary
+        const translations = {
+            en: {
+                langBtn: "Español",
+                location: "Southern Pines, NC & Surrounding Areas",
+                heroTitle: "Professional Residential & Commercial Landscaping",
+                heroSubtitle: "Quality lawn care, freshly raked pinestraw, mulch installation, decorative stone, and full yard maintenance brought right to your door.",
+                callNow: "Call Now:",
+                servicesTitle: "Our Services",
+                servicesSubtitle: "Call or message us directly on WhatsApp for fast, reliable service",
+                srv1Title: "Lawn Mowing & Maintenance",
+                srv1Desc: "Clean, striped mowing, edging, and regular yard care to keep your grass healthy and sharp.",
+                srv2Title: "Freshly Raked Pinestraw",
+                srv2Desc: "Delivery and neat installation of fresh pinestraw around trees, driveways, and garden beds.",
+                srv3Title: "Mulch & Decorative Stone",
+                srv3Desc: "Custom flower beds with dark mulch, river rocks, white stones, and shrub planting.",
+                srv4Title: "Yard Cleanup & Hauling",
+                srv4Desc: "Branch removal, bush trimming, seasonal cleanups, and debris hauling with our own fleet.",
+                galleryTitle: "Our Recent Work",
+                gallerySubtitle: "Real results from our team at Victor's Landscaping & More LLC",
+                img6: "Professional Lawn Mowing & Striping",
+                img7: "Clean Residential Lawn Finish",
+                img12: "Freshly Raked Pinestraw Delivery",
+                img5: "Pinestraw Installation Around Trees",
+                img3: "Full Yard Pinestraw Coverage",
+                img4: "Front Walkway Mulch & Boxwoods",
+                img9: "Commercial Bed Mulching & Planting",
+                img8: "Decorative Stone & Drainage Landscaping",
+                img10: "Full Property Cleanup & Equipment",
+                img11: "Our Service Fleet Ready for Your Home",
+                reviewsTitle: "Satisfied Customer Comments",
+                reviewsSubtitle: "No registration required — leave your name, rating (0 to 5 stars), and feedback below",
+                labelName: "Your Name:",
+                labelRating: "Service Rating (0 to 5 Stars):",
+                zeroStarsBtn: "Set 0 Stars",
+                labelComment: "Your Comment:",
+                submitBtn: "Post Comment",
+                footerTagline: "Direct Door-to-Door Landscaping Service — Call or WhatsApp Today!",
+                placeholderName: "Your name",
+                placeholderComment: "Share your experience with our service..."
+            },
+            es: {
+                langBtn: "English",
+                location: "Southern Pines, NC y Alrededores",
+                heroTitle: "Jardinería Profesional Residencial y Comercial a Domicilio",
+                heroSubtitle: "Corte de césped, pinestraw recién rastrillado, instalación de mulch, piedra decorativa y mantenimiento completo directamente en su hogar.",
+                callNow: "Llamar Ahora:",
+                servicesTitle: "Nuestros Servicios",
+                servicesSubtitle: "Llámenos o envíenos un mensaje directo por WhatsApp para atención rápida",
+                srv1Title: "Corte y Mantenimiento de Césped",
+                srv1Desc: "Corte limpio y delineado, orillado y cuidado regular para mantener su jardín impecable.",
+                srv2Title: "Pinestraw Recién Rastrillado",
+                srv2Desc: "Entrega e instalación limpia de pinestraw fresco alrededor de árboles, entradas y jardines.",
+                srv3Title: "Mulch y Piedra Decorativa",
+                srv3Desc: "Diseño de jardineras con mulch oscuro, piedra de río, piedra blanca y plantación de arbustos.",
+                srv4Title: "Limpieza General y Acarreo",
+                srv4Desc: "Poda de arbustos, retiro de ramas, limpieza de temporada y acarreo con nuestros propios camiones.",
+                galleryTitle: "Trabajos Realizados",
+                gallerySubtitle: "Resultados reales de nuestro equipo en Victor's Landscaping & More LLC",
+                img6: "Corte y Delineado Profesional de Césped",
+                img7: "Acabado Limpio en Jardín Residencial",
+                img12: "Entrega de Pinestraw Recién Rastrillado",
+                img5: "Instalación de Pinestraw Alrededor de Árboles",
+                img3: "Cobertura Completa de Pinestraw en Patio",
+                img4: "Mulch y Arbustos en Entrada Principal",
+                img9: "Jardinería Comercial con Mulch y Plantas",
+                img8: "Diseño con Piedra Decorativa y Drenaje",
+                img10: "Limpieza Total de Propiedad y Equipo",
+                img11: "Nuestra Flota Lista para Atenderle",
+                reviewsTitle: "Comentarios de Clientes Satisfechos",
+                reviewsSubtitle: "Sin necesidad de registro — escriba su nombre, calificación (0 a 5 estrellas) y comentario",
+                labelName: "Su Nombre:",
+                labelRating: "Calificación del Servicio (0 a 5 Estrellas):",
+                zeroStarsBtn: "Poner 0 Estrellas",
+                labelComment: "Su Comentario:",
+                submitBtn: "Publicar Comentario",
+                footerTagline: "Servicio de Jardinería a Domicilio — ¡Llámenos o escriba por WhatsApp!",
+                placeholderName: "Escriba su nombre",
+                placeholderComment: "Cuéntenos su experiencia con nuestro servicio..."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.documentElement.lang = currentLang;
+            
+            const t = translations[currentLang];
+            document.getElementById('langToggle').textContent = t.langBtn;
+            document.getElementById('customerName').placeholder = t.placeholderName;
+            document.getElementById('customerComment').placeholder = t.placeholderComment;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
+        }
+
+        // Star Rating Logic (0 to 5)
+        let selectedRating = 0;
+        const stars = document.querySelectorAll('.star');
+        const ratingDisplay = document.getElementById('ratingValueDisplay');
+
+        function setRating(val) {
+            selectedRating = val;
+            ratingDisplay.textContent = `${selectedRating} / 5`;
+            stars.forEach(star => {
+                const starVal = parseInt(star.getAttribute('data-value'));
+                if (starVal <= selectedRating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const val = parseInt(star.getAttribute('data-value'));
+                setRating(val);
+            });
+        });
+
+        // Comments System (Local Storage)
+        const defaultReviews = [
+            
+        ];
+
+        function loadReviews() {
+            const saved = localStorage.getItem('victors_landscaping_reviews');
+            return saved ? JSON.parse(saved) : defaultReviews;
+        }
+
+        function saveReviews(reviews) {
+            localStorage.setItem('victors_landscaping_reviews', JSON.stringify(reviews));
+        }
+
+        function renderStarsHTML(rating) {
+            let html = '';
+            for (let i = 1; i <= 5; i++) {
+                html += i <= rating ? '★' : '☆';
+            }
+            return `${html} (${rating}/5)`;
+        }
+
+        function renderReviews() {
+            const list = document.getElementById('reviewsList');
+            const reviews = loadReviews();
+            list.innerHTML = '';
+
+            reviews.forEach(rev => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                
+                const header = document.createElement('div');
+                header.className = 'review-header';
+
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'reviewer-name';
+                nameSpan.textContent = rev.name;
+
+                const starsSpan = document.createElement('span');
+                starsSpan.className = 'review-stars';
+                starsSpan.textContent = renderStarsHTML(rev.rating);
+
+                header.appendChild(nameSpan);
+                header.appendChild(starsSpan);
+
+                const bodyP = document.createElement('p');
+                bodyP.textContent = rev.comment;
+
+                card.appendChild(header);
+                card.appendChild(bodyP);
+                list.appendChild(card);
+            });
+        }
+
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('customerName');
+            const commentInput = document.getElementById('customerComment');
+
+            const newReview = {
+                name: nameInput.value.trim(),
+                rating: selectedRating,
+                comment: commentInput.value.trim()
+            };
+
+            if (!newReview.name || !newReview.comment) return;
+
+            const reviews = loadReviews();
+            reviews.unshift(newReview);
+            saveReviews(reviews);
+            renderReviews();
+
+            nameInput.value = '';
+            commentInput.value = '';
+            setRating(0);
+        });
+
+        // Initialize
+        document.getElementById('customerName').placeholder = translations.en.placeholderName;
+        document.getElementById('customerComment').placeholder = translations.en.placeholderComment;
+        renderReviews();
+    </script>
+</body>
+</html>
